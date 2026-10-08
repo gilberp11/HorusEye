@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HorusEye // 50 Legendary Internet Rabbit Holes</title>
+  
+  <!-- Sacred Eye of Horus Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- High-Impact Fonts: Ancient Egyptian Display + Cyber Heavyweight -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Chakra+Petch:wght@400;600;700&family=JetBrains+Mono:wght@400;600;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Floating Hieroglyph Particle Canvas -->
+  <canvas id="glyphCanvas"></canvas>
+
+  <!-- Top Celestial HUD Bar -->
+  <header class="horus-top-bar">
+    <div class="top-bar-inner">
+      
+      <!-- Brand & Eye of Horus Mouse Tracker -->
+      <div class="brand-identity-wrap">
+        <!-- Interactive Eye of Horus (Follows Cursor) -->
+        <div class="horus-eye-tracker-box" id="horusEyeWidget" title="The Sacred Eye of Horus: Tracks your gaze across cyberspace">
+          <svg class="horus-eye-svg" viewBox="0 0 100 70">
+            <!-- Sacred Eyebrow -->
+            <path class="horus-eyebrow" d="M 12 18 Q 50 6 88 18" />
+            <!-- Eye Contour (Sclera) -->
+            <path class="horus-sclera" d="M 10 32 Q 50 14 90 32 Q 50 50 10 32 Z" />
+            <!-- Dynamic Gaze Iris & Pupil -->
+            <g class="horus-iris">
+              <circle class="outer-iris" cx="50" cy="32" r="13" />
+              <circle class="inner-pupil" cx="50" cy="32" r="7" />
+              <circle class="pupil-core" cx="50" cy="32" r="3" />
+            </g>
+            <!-- Sacred Falcon Feather Tear & Spiral -->
+            <path class="horus-tear-spiral" d="M 50 49 L 50 64" />
+            <path class="horus-tear-spiral" d="M 72 42 Q 62 58 74 65 Q 82 60 76 54" />
+          </svg>
+        </div>
+
+        <div class="brand-titles">
+          <h1 class="brand-main-name">
+            HORUS<span class="gold-txt">EYE</span>
+            <span class="brand-version-badge">v5.0 KEMET</span>
+          </h1>
+          <p class="brand-subtext" id="brandSubtext">OMNI-PORTAL OF 50 RABBIT HOLES // CYBER-ARCHIVE</p>
+        </div>
+      </div>
+
+      <!-- Telemetry Status -->
+      <div class="nav-telemetry">
+        <div class="telemetry-cell">
+          <span class="cell-label" id="telemetrySanctuaryLabel">Web Sanctuary</span>
+          <span class="cell-value" id="telemetrySanctuaryVal"><span class="pulse-dot"></span>SYSTEM LIVE</span>
+        </div>
+        <div class="telemetry-cell">
+          <span class="cell-label" id="telemetryConnectedLabel">Connected Portals</span>
+          <span class="cell-value" id="totalPortalsCount">50 / 50</span>
+        </div>
+        <div class="telemetry-cell">
+          <span class="cell-label" id="telemetryFrequencyLabel">Visual Frequency</span>
+          <span class="cell-value" id="telemetryFrequencyVal">HALOS ACTIVE</span>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="nav-controls">
+        <!-- Osiris AI Sacred Transition Button -->
+        <button class="btn-horus btn-osiris-portal" id="osirisPortalBtn" title="Unfurl the Sacred Papyrus & Enter Osiris AI Live Telemetry">
+          <span class="btn-icon">𓁀</span> OSIRIS AI
+        </button>
+
+        <button class="btn-horus btn-roulette" id="rouletteBtn" title="Quantum warp directly to a random rabbit hole">
+          🎲 ASTRAL WARP
+        </button>
+
+        <button class="btn-horus" id="customNodeBtn" title="Inscribe a new portal into the matrix">
+          + ADD NODE
+        </button>
+
+        <!-- Ambient Egyptian Music Toggle -->
+        <button class="btn-horus btn-bgm muted" id="bgmBtn" title="Toggle subtle ancient Egyptian ambient drone">
+          <span class="btn-icon">𓏢</span> BGM
+        </button>
+
+        <!-- Bilingual Hieroglyphic Switcher (EN / ES) -->
+        <button class="btn-horus btn-lang" id="langToggleBtn" title="Toggle Language / Cambiar Idioma">
+          <span class="lang-hiero">𓏛</span> EN
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Control Altar: Search & Categorical Halos -->
+  <section class="control-altar">
+    <div class="altar-search-row">
+      <span class="search-hiero-icon">𓁹</span>
+      <input 
+        type="text" 
+        id="searchInput" 
+        class="altar-input" 
+        placeholder="Awaken a portal: search satellites, cosmos, history, rare books, maps, telemetry or art..."
+        autocomplete="off"
+      >
+    </div>
+
+    <!-- Filter Stream -->
+    <div class="category-filter-stream" id="categoryPillList">
+      <!-- Generated via app.js -->
+    </div>
+  </section>
+
+  <!-- Section Title Banner -->
+  <div class="section-hud-banner">
+    <div class="hud-title-wrap">
+      <h2 id="bannerMainTitle">HALOS OF VISION // PORTAL MATRIX</h2>
+      <span class="portal-counter-tag" id="activeCategoryTitle">50 PORTALS // OMNI-VISION</span>
+    </div>
+  </div>
+
+  <!-- Halos of Vision Matrix Grid (Circular Portals) -->
+  <main class="halos-matrix-container" id="halosGrid">
+    <!-- Rendered via app.js with vibrant neon halos and click-to-open -->
+  </main>
+
+  <!-- PAPYRUS SCROLL UNROLL TRANSITION OVERLAY (OSIRIS PORTAL) -->
+  <div class="papyrus-scroll-overlay" id="papyrusOverlay">
+    <div class="papyrus-sheet">
+      <button class="papyrus-close-cross" id="closePapyrusBtn" title="Close Scroll">✕</button>
+      <div class="papyrus-hiero-border">𓁀 𓁹 𓋹 𓊽 𓇳 𓊖 𓈗 𓇯 𓏛 𓁀</div>
+      <h3 class="papyrus-title" id="papyrusTitleEl">THE SANCTUARY OF OSIRIS</h3>
+      <p class="papyrus-desc" id="papyrusDescEl">
+        You stand at the threshold of Osiris AI: real-time global telemetry featuring maritime armadas, satellites, live CCTV previews, seismic rifts, and naval intelligence.
+      </p>
+      <a href="https://osirisai.live/?layers=maritime,satellites,cctv,cctv_previews,live_news,earthquakes,global_incidents,day_night,cables,sdk_sea,sdk_air,sdk_naval" target="_blank" rel="noopener noreferrer" class="papyrus-cta-btn" id="papyrusCtaLink">
+        𓁀 ENTER OSIRIS INTELLIGENCE
+      </a>
+      <div class="papyrus-hiero-border" style="margin-top: 24px; margin-bottom: 0;">𓁀 𓁹 𓋹 𓊽 𓇳 𓊖 𓈗 𓇯 𓏛 𓁀</div>
+    </div>
+  </div>
+
+  <!-- Interactive Astral Modal Viewport (Preview & Hologram Station) -->
+  <div class="astral-modal-backdrop" id="portalModal">
+    <div class="astral-modal-chamber">
+      <div class="chamber-topbar">
+        <div class="chamber-title-wrap">
+          <span class="chamber-glyph" id="modalGlyph">𓁹</span>
+          <div>
+            <h3 id="modalTitle">Portal Chamber</h3>
+            <span class="chamber-submeta" id="modalCategory">CATEGORY // URL</span>
+          </div>
+        </div>
+        <div class="chamber-actions">
+          <span class="brand-version-badge" id="modalNodeId">#01</span>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn-horus btn-roulette" id="modalExternalLink">
+            ⚡ OPEN FULLSCREEN
+          </a>
+          <button class="btn-chamber-close" id="modalCloseBtn" title="Close Portal">✕</button>
+        </div>
+      </div>
+
+      <div class="chamber-viewport-frame">
+        <!-- Direct Live Iframe for embed-friendly sites -->
+        <iframe id="modalIframe" class="portal-live-frame" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" src="about:blank"></iframe>
+        
+        <!-- High-Fidelity Hologram Station for CSP-Restricted Sites -->
+        <div class="hologram-station-view" id="modalHologramFallback" style="display: none;">
+          <div class="hologram-shrine-box">
+            <div class="hologram-emblem">𓂀</div>
+            <h4 id="modalHoloTitle">Secured Origin Portal</h4>
+            <p id="modalHoloDesc">
+              This realm enforces strict browser origin protection. You can explore it with unhindered fidelity in an isolated warp window.
+            </p>
+            <div class="hologram-tip-pill" id="modalHoloTip">
+              💡 Exploration Secret: Enable interactive telemetry layers and 3D maps for complete immersion.
+            </div>
+            <div class="hologram-btns-row">
+              <a href="#" target="_blank" rel="noopener noreferrer" class="btn-horus btn-roulette" id="modalHoloLaunch" style="padding: 12px 28px; font-size: 0.95rem;">
+                🚀 ENTER EXTERNAL REALM
+              </a>
+              <button class="btn-horus" id="modalForceEmbedBtn">
+                🔄 ATTEMPT FORCED EMBED
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Node Modal -->
+  <div class="astral-modal-backdrop" id="customModal">
+    <div class="astral-modal-chamber" style="max-width: 600px; height: auto;">
+      <div class="chamber-topbar">
+        <div class="chamber-title-wrap">
+          <span class="chamber-glyph">𓋹</span>
+          <h3 id="customModalHeading">INSCRIBE NEW PORTAL</h3>
+        </div>
+        <button class="btn-chamber-close" id="closeCustomModal">✕</button>
+      </div>
+      <div style="padding: 28px;">
+        <form id="customForm">
+          <div class="custom-form-group">
+            <label id="lblCustomName">Portal Name</label>
+            <input type="text" id="customName" class="custom-input" required placeholder="e.g. Stellarium Mobile / Space Engine">
+          </div>
+          <div class="custom-form-group">
+            <label id="lblCustomUrl">URL Link (https://)</label>
+            <input type="url" id="customUrl" class="custom-input" required placeholder="https://example.com">
+          </div>
+          <div class="custom-form-group">
+            <label id="lblCustomCat">Category</label>
+            <select id="customCat" class="custom-input" style="cursor: pointer;">
+              <option value="Satellite & Weather">Satellite & Weather</option>
+              <option value="Network & Grid">Network & Grid</option>
+              <option value="Cartography & Realms">Cartography & Realms</option>
+              <option value="Cosmos & Science">Cosmos & Science</option>
+              <option value="Data & Telemetry">Data & Telemetry</option>
+              <option value="Archives & Vaults">Archives & Vaults</option>
+              <option value="Art, Culture & Audio">Art, Culture & Audio</option>
+            </select>
+          </div>
+          <div class="custom-form-group">
+            <label id="lblCustomDesc">Rabbit Hole Lore</label>
+            <textarea id="customDesc" class="custom-input" rows="3" required placeholder="Why is this rabbit hole worth exploring for hours?"></textarea>
+          </div>
+          <div class="custom-form-group">
+            <label id="lblCustomTip">Secret Exploration Clue</label>
+            <input type="text" id="customTip" class="custom-input" placeholder="e.g. Click the 3D toggle to fly through galaxies...">
+          </div>
+          <div class="custom-form-group">
+            <label id="lblCustomTags">Tags (comma separated)</label>
+            <input type="text" id="customTags" class="custom-input" placeholder="space, 3d, science, map">
+          </div>
+          <button type="submit" class="btn-horus btn-roulette" id="btnCustomSubmit" style="width: 100%; justify-content: center; padding: 14px; margin-top: 10px;">
+            ✦ AWAKEN PORTAL INTO THE MATRIX
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Creator & Vision Sanctuary Footer -->
+  <footer class="creator-sanctuary-footer">
+    <div class="footer-inner-container">
+      
+      <!-- Creator Biography: Gilber Paulino -->
+      <div class="creator-bio-card">
+        <span class="creator-tag-badge" id="footerCreatorBadge">𓂀 CREATOR & TECHNOLOGICAL VISION</span>
+        <h3 class="creator-name">GILBER PAULINO</h3>
+        <p class="creator-title-role" id="footerCreatorTitle">Creative Tech Design // Cybersecurity // Graphic Design with AI Agents</p>
+        <p class="creator-bio-p" id="footerCreatorBio">
+          Architect exploring the convergence of advanced cybersecurity, autonomous AI agent workflows, and high-impact visual design. <strong>HorusEye</strong> transforms the deepest rabbit holes of the global web into an intuitive, sacred command station accessible to every curious mind.
+        </p>
+        <div class="creator-social-links">
+          <a href="https://github.com/gilberp11" target="_blank" rel="noopener noreferrer" class="social-link-btn btn-github">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub @gilberp11
+          </a>
+          <a href="https://www.linkedin.com/public-profile/settings/?trk=d_flagship3_profile_self_view_public_profile&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3B0lw3RuPJQsmBBfP%2Bpt2c0Q%3D%3D" target="_blank" rel="noopener noreferrer" class="social-link-btn">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            LinkedIn Profile
+          </a>
+        </div>
+      </div>
+
+      <!-- Open Source Project Vision -->
+      <div class="project-vision-card">
+        <h4 class="vision-title" id="footerVisionTitle">𓋹 OPEN SOURCE INITIATIVE & LIVING EVOLUTION</h4>
+        <p class="vision-text" id="footerVisionP1">
+          This project is 100% open source and cleanly decoupled into modular scripts so engineers, design enthusiasts, and cybersecurity students can fork, replicate, and expand it.
+        </p>
+        <p class="vision-text" id="footerVisionP2">
+          Periodically updated with new open-source intelligence (OSINT) feeds, legendary rabbit holes, and audiovisual experiments. Contributions and pull requests are welcomed.
+        </p>
+        <div class="open-source-badges">
+          <span class="os-badge" id="badgeLicense">✦ MIT LICENSE</span>
+          <span class="os-badge" id="badgeTech">✦ VANILLA ES6+</span>
+          <span class="os-badge" id="badgeAudio">✦ WEB AUDIO API</span>
+          <span class="os-badge" id="badgeCredits">✦ CRAFTED WITH ANTIGRAVITY & GILBER PAULINO</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div class="footer-bottom-copyright">
+      <span id="footerCopyright">© HorusEye // Conceived & Designed by Gilber Paulino with Antigravity. Kemet Experience // Free for Humanity.</span>
+    </div>
+  </footer>
+
+  <!-- Modular Scripts -->
+  <script src="js/database.js" charset="UTF-8"></script>
+  <script src="js/audio.js" charset="UTF-8"></script>
+  <script src="js/eye.js" charset="UTF-8"></script>
+  <script src="js/app.js" charset="UTF-8"></script>
+</body>
+</html>

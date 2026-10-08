@@ -1,0 +1,1271 @@
+@charset "UTF-8";
+
+/**
+ * HORUSEYE // VIBRANT CYBERPUNK-EGYPTIAN STYLESHEET (v5.0)
+ * Deep obsidian black foundation with mega-vibrant neon halos:
+ * Electric Cyan (#00f0ff), Hot Magenta (#ff0077), Pharaonic Gold (#ffd700),
+ * Matrix Lime (#00ff88), Electric Violet (#9d4edd), Solar Amber (#ffaa00).
+ */
+
+:root {
+  --bg-deep: #05070f;
+  --bg-surface: #0a0e1c;
+  --bg-card: rgba(13, 19, 36, 0.85);
+  
+  /* Cyber-Egyptian Vibrant Neon Accents */
+  --gold-primary: #ffd700;
+  --gold-bright: #ffea79;
+  --cyan-cyber: #00f0ff;
+  --magenta-cyber: #ff0077;
+  --lime-cyber: #00ff88;
+  --purple-cyber: #9d4edd;
+  --amber-solar: #ffaa00;
+
+  --text-pure: #ffffff;
+  --text-primary: #f0f6fc;
+  --text-muted: #8b9bb4;
+  --border-subtle: rgba(255, 215, 0, 0.25);
+
+  --font-display: 'Syne', 'Chakra Petch', sans-serif;
+  --font-ancient: 'Cinzel Decorative', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(255, 215, 0, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 10% 40%, rgba(0, 240, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 90% 70%, rgba(255, 0, 119, 0.08) 0%, transparent 50%),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+}
+
+/* Floating Hieroglyphs Canvas */
+#glyphCanvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.65;
+}
+
+/* Subtle CRT Scanlines */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.18) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* TOP CELESTIAL NAV HEADER */
+.horus-top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(6, 9, 18, 0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.25);
+  padding: 14px 32px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 215, 0, 0.1);
+}
+
+.top-bar-inner {
+  max-width: 1750px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Eye of Horus Header Emblem */
+.brand-identity-wrap {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.horus-eye-tracker-box {
+  width: 68px;
+  height: 50px;
+  position: relative;
+  cursor: pointer;
+  filter: drop-shadow(0 0 14px rgba(255, 215, 0, 0.6));
+  transition: transform 0.3s ease;
+}
+
+.horus-eye-tracker-box:hover {
+  transform: scale(1.08);
+}
+
+.horus-eye-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.horus-sclera {
+  fill: #000;
+  stroke: var(--gold-primary);
+  stroke-width: 2.4;
+}
+
+.horus-eyebrow {
+  fill: none;
+  stroke: var(--gold-bright);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+}
+
+.horus-tear-spiral {
+  fill: none;
+  stroke: var(--cyan-cyber);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+.horus-iris {
+  transform-origin: center;
+  transition: transform 0.08s ease-out;
+}
+
+.horus-iris circle.outer-iris {
+  fill: var(--gold-bright);
+  filter: drop-shadow(0 0 8px var(--gold-primary));
+}
+
+.horus-iris circle.inner-pupil {
+  fill: #000;
+}
+
+.horus-iris circle.pupil-core {
+  fill: var(--cyan-cyber);
+  filter: drop-shadow(0 0 4px var(--cyan-cyber));
+}
+
+.eye-pulse-active .horus-eye-tracker-box {
+  animation: eyeGoldenBurst 0.6s ease-out;
+}
+
+@keyframes eyeGoldenBurst {
+  0% { filter: drop-shadow(0 0 10px var(--gold-primary)); }
+  50% { filter: drop-shadow(0 0 40px var(--cyan-cyber)) drop-shadow(0 0 30px var(--gold-primary)); }
+  100% { filter: drop-shadow(0 0 14px rgba(255, 215, 0, 0.6)); }
+}
+
+.brand-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-main-name {
+  font-family: var(--font-ancient);
+  font-size: 1.65rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: var(--text-pure);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  line-height: 1.1;
+}
+
+.brand-main-name span.gold-txt {
+  color: var(--gold-primary);
+  text-shadow: 0 0 18px rgba(255, 215, 0, 0.6);
+}
+
+.brand-version-badge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  padding: 3px 8px;
+  background: rgba(255, 215, 0, 0.15);
+  border: 1px solid var(--gold-primary);
+  color: var(--gold-bright);
+  border-radius: 3px;
+  letter-spacing: 1px;
+}
+
+.brand-subtext {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+  margin-top: 4px;
+}
+
+/* Nav Telemetry Stats */
+.nav-telemetry {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.telemetry-cell {
+  display: flex;
+  flex-direction: column;
+  border-left: 2px solid var(--gold-primary);
+  padding-left: 10px;
+}
+
+.cell-label {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cell-value {
+  color: var(--gold-bright);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.pulse-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: var(--lime-cyber);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--lime-cyber);
+  margin-right: 5px;
+  animation: pulseBeacon 1.4s infinite;
+}
+
+@keyframes pulseBeacon {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.85); }
+}
+
+/* Header Buttons */
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-horus {
+  background: rgba(14, 20, 38, 0.85);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  color: var(--text-pure);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 1.2px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-transform: uppercase;
+}
+
+.btn-horus:hover {
+  border-color: var(--gold-primary);
+  color: #000;
+  background: var(--gold-primary);
+  box-shadow: 0 0 22px rgba(255, 215, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+.btn-horus.btn-roulette {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 0, 119, 0.15));
+  border-color: var(--gold-primary);
+  color: var(--gold-bright);
+}
+
+.btn-horus.btn-roulette:hover {
+  background: var(--gold-primary);
+  color: #000;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
+}
+
+/* OSIRIS AI SPECIAL PORTAL BUTTON */
+.btn-horus.btn-osiris-portal {
+  background: linear-gradient(135deg, rgba(255, 0, 119, 0.2), rgba(255, 215, 0, 0.2));
+  border: 1.5px solid var(--magenta-cyber);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(255, 0, 119, 0.3);
+}
+
+.btn-horus.btn-osiris-portal::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  animation: shineSweep 3s infinite;
+}
+
+@keyframes shineSweep {
+  0% { left: -100%; }
+  40%, 100% { left: 100%; }
+}
+
+.btn-horus.btn-osiris-portal:hover {
+  background: var(--magenta-cyber);
+  color: #fff;
+  border-color: #fff;
+  box-shadow: 0 0 30px rgba(255, 0, 119, 0.8);
+}
+
+/* Language Switcher Button (Hieroglyphic) */
+.btn-horus.btn-lang {
+  border-color: var(--cyan-cyber);
+  color: var(--cyan-cyber);
+  background: rgba(0, 240, 255, 0.1);
+}
+
+.btn-horus.btn-lang:hover {
+  background: var(--cyan-cyber);
+  color: #000;
+  box-shadow: 0 0 20px var(--cyan-cyber);
+}
+
+.btn-horus.btn-lang .lang-hiero {
+  font-size: 1.15rem;
+  color: var(--gold-primary);
+}
+
+/* BGM Audio Button */
+.btn-horus.btn-bgm {
+  border-color: var(--lime-cyber);
+  color: var(--lime-cyber);
+  background: rgba(0, 255, 136, 0.1);
+}
+
+.btn-horus.btn-bgm:hover {
+  background: var(--lime-cyber);
+  color: #000;
+  box-shadow: 0 0 20px var(--lime-cyber);
+}
+
+.btn-horus.btn-bgm.muted {
+  opacity: 0.55;
+  border-color: var(--text-muted);
+  color: var(--text-muted);
+  background: transparent;
+}
+
+/* MAIN HERO / CONTROL ALTAR */
+.control-altar {
+  max-width: 1750px;
+  margin: 25px auto 18px;
+  padding: 0 32px;
+  position: relative;
+  z-index: 10;
+}
+
+.altar-search-row {
+  display: flex;
+  align-items: center;
+  background: var(--bg-surface);
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  border-radius: 6px;
+  padding: 10px 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s;
+}
+
+.altar-search-row:focus-within {
+  border-color: var(--cyan-cyber);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.35);
+}
+
+.search-hiero-icon {
+  font-size: 1.5rem;
+  color: var(--gold-primary);
+  margin-right: 14px;
+}
+
+.altar-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-pure);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+}
+
+.altar-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Category Stream */
+.category-filter-stream {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 18px 0 10px;
+  scrollbar-width: none;
+}
+
+.category-filter-stream::-webkit-scrollbar {
+  display: none;
+}
+
+.cat-filter-halo {
+  background: rgba(14, 20, 38, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 25px;
+  cursor: pointer;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.cat-filter-halo:hover {
+  border-color: var(--cyan-cyber);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+}
+
+.cat-filter-halo.active {
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.25), rgba(255, 0, 119, 0.18));
+  border-color: var(--cyan-cyber);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+}
+
+.cat-filter-halo .cat-hiero {
+  font-size: 1.05rem;
+  color: var(--gold-primary);
+}
+
+.cat-filter-halo .cat-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--cyan-cyber);
+  padding: 2px 7px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+}
+
+/* SECTION HEADER BANNER */
+.section-hud-banner {
+  max-width: 1750px;
+  margin: 10px auto 25px;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+  padding-bottom: 12px;
+  position: relative;
+  z-index: 10;
+}
+
+.hud-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hud-title-wrap h2 {
+  font-family: var(--font-ancient);
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  color: var(--gold-primary);
+  font-weight: 800;
+}
+
+.portal-counter-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--cyan-cyber);
+}
+
+/* =======================================================
+   HALOS OF VISION (CIRCULAR PORTALS)
+   Always visible, highly colorful and vibrant
+   ======================================================= */
+.halos-matrix-container {
+  max-width: 1750px;
+  margin: 0 auto 60px;
+  padding: 0 32px;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 45px 28px;
+  position: relative;
+  z-index: 10;
+  min-height: 400px;
+}
+
+.vision-halo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vision-halo-card:hover {
+  transform: translateY(-8px);
+}
+
+/* The Circular Stargate Orb */
+.halo-portal-orb {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+/* Orbiting Celestial Rings - Uses dynamic vibrant --portal-accent */
+.halo-orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: all 0.5s ease;
+}
+
+.ring-outer {
+  inset: -14px;
+  border: 2px dashed var(--portal-accent, #ffd700);
+  opacity: 0.55;
+  filter: drop-shadow(0 0 6px var(--portal-accent, #ffd700));
+  animation: rotateOrbitClockwise 28s linear infinite;
+}
+
+.ring-inner {
+  inset: -5px;
+  border: 1.5px solid var(--gold-primary);
+  opacity: 0.45;
+  filter: drop-shadow(0 0 4px var(--gold-primary));
+  animation: rotateOrbitCounter 20s linear infinite;
+}
+
+.vision-halo-card:hover .ring-outer {
+  opacity: 1;
+  filter: drop-shadow(0 0 16px var(--portal-accent, #ffd700));
+  animation-duration: 8s;
+}
+
+.vision-halo-card:hover .ring-inner {
+  opacity: 1;
+  filter: drop-shadow(0 0 12px var(--gold-bright));
+  animation-duration: 6s;
+}
+
+@keyframes rotateOrbitClockwise {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes rotateOrbitCounter {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Celestial Compass Marks */
+.halo-compass-marks span.mark {
+  position: absolute;
+  font-size: 0.95rem;
+  color: var(--portal-accent, #ffd700);
+  opacity: 0.7;
+  transition: all 0.3s;
+}
+
+.mark-n { top: -22px; left: 50%; transform: translateX(-50%); }
+.mark-s { bottom: -22px; left: 50%; transform: translateX(-50%); }
+.mark-e { right: -22px; top: 50%; transform: translateY(-50%); }
+.mark-w { left: -22px; top: 50%; transform: translateY(-50%); }
+
+.vision-halo-card:hover .mark {
+  opacity: 1;
+  color: #fff;
+  filter: drop-shadow(0 0 10px var(--portal-accent, #ffd700));
+}
+
+/* Central Viewport Core */
+.halo-core-viewport {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  border: 2px solid var(--portal-accent, #ffd700);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.8), inset 0 0 30px rgba(0, 0, 0, 0.9);
+  transition: all 0.4s ease;
+}
+
+.vision-halo-card:hover .halo-core-viewport {
+  border-color: #fff;
+  box-shadow: 0 0 35px var(--portal-accent, #ffd700), inset 0 0 25px var(--portal-accent, #ffd700);
+}
+
+.halo-preview-backdrop {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+  transition: transform 0.6s ease, opacity 0.4s ease, filter 0.4s ease;
+  filter: saturate(1.3) contrast(1.1);
+}
+
+/* Hover: Brutal Egyptian Mirage Blur Effect */
+.vision-halo-card:hover .halo-preview-backdrop {
+  opacity: 0.9;
+  transform: scale(1.15);
+  filter: blur(1.5px) saturate(1.6) brightness(1.15);
+}
+
+.halo-core-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, transparent 40%, rgba(5, 7, 15, 0.95) 100%);
+  pointer-events: none;
+}
+
+/* Dormant State (Hieroglyph + Name) */
+.halo-dormant-state {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: transform 0.35s ease;
+}
+
+.halo-glyph-symbol {
+  font-size: 3.6rem;
+  color: var(--gold-primary);
+  filter: drop-shadow(0 0 16px var(--portal-accent, #ffd700));
+  transition: all 0.3s ease;
+}
+
+.halo-glyph-label {
+  font-family: var(--font-ancient);
+  font-size: 0.72rem;
+  color: var(--text-pure);
+  letter-spacing: 1px;
+}
+
+.vision-halo-card:hover .halo-dormant-state {
+  transform: scale(1.1);
+}
+
+.vision-halo-card:hover .halo-glyph-symbol {
+  color: #fff;
+  filter: drop-shadow(0 0 25px var(--portal-accent, #ffd700)) drop-shadow(0 0 15px #fff);
+  animation: sacredPulse 1.8s infinite alternate;
+}
+
+@keyframes sacredPulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+/* ID Badge & Favorite Toggle on Halo */
+.halo-id-pill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 800;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid var(--portal-accent, #ffd700);
+  color: var(--portal-accent, #ffd700);
+  padding: 3px 9px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.halo-fav-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all 0.2s;
+  z-index: 5;
+}
+
+.halo-fav-toggle:hover, .halo-fav-toggle.active {
+  border-color: var(--magenta-cyber);
+  color: var(--magenta-cyber);
+  box-shadow: 0 0 14px var(--magenta-cyber);
+}
+
+/* Typography Identity: Heavy, Bold, High-Impact */
+.halo-identity-block {
+  width: 100%;
+}
+
+.halo-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: var(--text-pure);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  transition: all 0.25s;
+}
+
+.vision-halo-card:hover .halo-title {
+  color: var(--portal-accent, #ffd700);
+  text-shadow: 0 0 20px var(--portal-accent, #ffd700);
+  transform: scale(1.02);
+}
+
+.halo-subline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.halo-cat-tag {
+  color: var(--portal-accent, #ffd700);
+  font-weight: 700;
+}
+
+.halo-domain {
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+/* Empty State */
+.empty-halos-portal {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.empty-hiero-glyph {
+  font-size: 4rem;
+  color: var(--gold-primary);
+  margin-bottom: 15px;
+}
+
+/* =======================================================
+   PAPYRUS SCROLL UNROLL TRANSITION (OSIRIS PORTAL)
+   ======================================================= */
+.papyrus-scroll-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(3, 4, 6, 0.95);
+  backdrop-filter: blur(20px);
+}
+
+.papyrus-scroll-overlay.active {
+  display: flex;
+}
+
+.papyrus-sheet {
+  width: 90vw;
+  max-width: 950px;
+  background: #e8d8b5;
+  background-image: 
+    radial-gradient(circle, transparent 40%, rgba(138, 105, 52, 0.4) 100%),
+    linear-gradient(rgba(100, 75, 30, 0.08) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 8px;
+  border-left: 20px solid #7c5a2b;
+  border-right: 20px solid #7c5a2b;
+  border-radius: 8px;
+  padding: 45px;
+  box-shadow: 0 0 80px rgba(255, 215, 0, 0.5), inset 0 0 40px rgba(100, 70, 20, 0.6);
+  color: #2b1f0c;
+  position: relative;
+  text-align: center;
+  animation: unrollScroll 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes unrollScroll {
+  0% { transform: scaleX(0.02) scaleY(0.9); opacity: 0; }
+  60% { transform: scaleX(1.03) scaleY(1); opacity: 1; }
+  100% { transform: scaleX(1) scaleY(1); opacity: 1; }
+}
+
+.papyrus-hiero-border {
+  font-size: 1.4rem;
+  color: #7c5a2b;
+  letter-spacing: 6px;
+  margin-bottom: 16px;
+}
+
+.papyrus-title {
+  font-family: var(--font-ancient);
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #2b1f0c;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+}
+
+.papyrus-desc {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #4a3717;
+  max-width: 700px;
+  margin: 0 auto 24px;
+}
+
+.papyrus-cta-btn {
+  display: inline-block;
+  background: #2b1f0c;
+  color: #ffd700;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  padding: 14px 34px;
+  border-radius: 4px;
+  text-decoration: none;
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+  transition: all 0.25s;
+}
+
+.papyrus-cta-btn:hover {
+  background: #ffd700;
+  color: #000;
+  box-shadow: 0 0 35px rgba(255, 215, 0, 0.8);
+  transform: scale(1.04);
+}
+
+.papyrus-close-cross {
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  font-size: 1.5rem;
+  color: #7c5a2b;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* =======================================================
+   INTERACTIVE ASTRAL MODAL VIEWPORT
+   ======================================================= */
+.astral-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 4, 6, 0.92);
+  backdrop-filter: blur(24px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.astral-modal-backdrop.active {
+  display: flex;
+}
+
+.astral-modal-chamber {
+  width: 96vw;
+  max-width: 1550px;
+  height: 92vh;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--gold-primary);
+  box-shadow: 0 0 60px rgba(0, 240, 255, 0.3), inset 0 0 30px rgba(255, 215, 0, 0.05);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modalAscend 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalAscend {
+  from { opacity: 0; transform: scale(0.96) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.chamber-topbar {
+  padding: 16px 24px;
+  background: rgba(0, 0, 0, 0.85);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chamber-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.chamber-glyph {
+  font-size: 2rem;
+  color: var(--gold-primary);
+}
+
+.chamber-title-wrap h3 {
+  font-family: var(--font-ancient);
+  font-size: 1.35rem;
+  color: var(--text-pure);
+  font-weight: 800;
+}
+
+.chamber-submeta {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--cyan-cyber);
+}
+
+.chamber-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-chamber-close {
+  width: 38px;
+  height: 38px;
+  border-radius: 4px;
+  background: rgba(255, 0, 119, 0.15);
+  border: 1px solid var(--magenta-cyber);
+  color: var(--magenta-cyber);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.btn-chamber-close:hover {
+  background: var(--magenta-cyber);
+  color: #fff;
+  box-shadow: 0 0 15px var(--magenta-cyber);
+}
+
+.chamber-viewport-frame {
+  flex-grow: 1;
+  position: relative;
+  background: #000;
+}
+
+iframe.portal-live-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Fallback Hologram Station for CSP-Restricted Sites */
+.hologram-station-view {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: radial-gradient(circle at center, rgba(16, 24, 45, 0.96), rgba(5, 7, 15, 0.99));
+  text-align: center;
+}
+
+.hologram-shrine-box {
+  max-width: 680px;
+  background: rgba(10, 15, 30, 0.9);
+  border: 1.5px solid var(--gold-primary);
+  border-radius: 8px;
+  padding: 36px;
+  box-shadow: 0 0 45px rgba(0, 240, 255, 0.25);
+  position: relative;
+}
+
+.hologram-emblem {
+  font-size: 3.8rem;
+  color: var(--gold-primary);
+  margin-bottom: 12px;
+  filter: drop-shadow(0 0 20px var(--gold-primary));
+}
+
+.hologram-shrine-box h4 {
+  font-family: var(--font-ancient);
+  font-size: 1.6rem;
+  color: var(--text-pure);
+  margin-bottom: 12px;
+  font-weight: 800;
+}
+
+.hologram-shrine-box p {
+  color: var(--text-primary);
+  opacity: 0.9;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin-bottom: 18px;
+}
+
+.hologram-tip-pill {
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid var(--cyan-cyber);
+  color: var(--cyan-cyber);
+  font-size: 0.85rem;
+  padding: 10px 16px;
+  border-radius: 6px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.hologram-btns-row {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* =======================================================
+   CREATOR & VISION FOOTER SECTION (GILBER PAULINO)
+   ======================================================= */
+.creator-sanctuary-footer {
+  background: rgba(6, 9, 18, 0.96);
+  border-top: 1px solid rgba(255, 215, 0, 0.2);
+  padding: 60px 32px 40px;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-inner-container {
+  max-width: 1750px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-bottom: 40px;
+}
+
+.creator-bio-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.creator-tag-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--gold-primary);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.creator-name {
+  font-family: var(--font-ancient);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--text-pure);
+  letter-spacing: 2px;
+}
+
+.creator-title-role {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--cyan-cyber);
+}
+
+.creator-bio-p {
+  color: var(--text-primary);
+  opacity: 0.9;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.creator-social-links {
+  display: flex;
+  gap: 14px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.social-link-btn {
+  background: rgba(14, 20, 38, 0.9);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  color: var(--text-pure);
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.25s ease;
+}
+
+.social-link-btn:hover {
+  border-color: var(--gold-primary);
+  color: #000;
+  background: var(--gold-primary);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+.project-vision-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: rgba(12, 18, 35, 0.7);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 8px;
+  padding: 28px;
+}
+
+.vision-title {
+  font-family: var(--font-ancient);
+  font-size: 1.25rem;
+  color: var(--gold-primary);
+  font-weight: 800;
+}
+
+.vision-text {
+  color: var(--text-primary);
+  opacity: 0.9;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.open-source-badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.os-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  color: var(--cyan-cyber);
+}
+
+.footer-bottom-copyright {
+  max-width: 1750px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Custom Node Form Modal */
+.custom-form-group {
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.custom-form-group label {
+  font-size: 0.78rem;
+  color: var(--cyan-cyber);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.custom-input {
+  background: rgba(5, 7, 15, 0.9);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 4px;
+  padding: 10px 14px;
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.custom-input:focus {
+  border-color: var(--cyan-cyber);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+}
+
+/* Responsive Rules */
+@media (max-width: 1024px) {
+  .footer-inner-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-bar-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-telemetry {
+    display: none;
+  }
+  .halos-matrix-container {
+    grid-template-columns: 1fr;
+  }
+  .footer-bottom-copyright {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
